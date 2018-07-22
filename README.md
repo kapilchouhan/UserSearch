@@ -22,13 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# User Search
 
+### Setup
+rake db:create
+rake db:migrate
+rake db:seed
 
-first step get the token:
+### first step get the token:
 
-Base64.encode64("user@example.com:password")
+basic_token = Base64.encode64("user@example.com:password")
 
-auth_token = curl http://localhost:3000/token -H 'Authorization: Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA==\n'
+auth_token = curl http://localhost:3000/token -H 'Authorization: Basic basic_token'
 
 curl http://localhost:3000/v1/users/search?term=e -H 'Authorization: Token token=auth_token'
 
